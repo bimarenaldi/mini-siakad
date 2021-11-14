@@ -16,11 +16,13 @@
             <thead>
                 <tr>
                     <th>Kelas</th>
+                    <th>Nama Kelas</th>
                 </tr>
             </thead>
             <tbody>
             <?php foreach($kelas as $row):?>
                 <tr>
+                    <td><?= $row->kelas;?></td>
                     <td><?= $row->nama_kelas;?></td>
                     <td>
                         <a href="#" class="btn btn-info btn-sm btn-edit" data-id="<?= $row->pk_kelas;?>" data-name="<?= $row->nama_kelas;?>" data-price="<?= $row->kelas_price;?>" data-category_id="<?= $row->kelas_category_id;?>">Edit</a>
@@ -46,9 +48,18 @@
             </div>
             <div class="modal-body">
              
-                <div class="form-group">
+               <div class="form-group">
+                    <select class="custom-select" name="kelas" required>
+                    <option value="VII">VII</option>
+                    <option value="VIII">VIII</option>
+                    <option value="IX">IX</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+
+                <div class="form-group">
                     <label>Nama Kelas</label>
-                    <input type="text" class="form-control" name="nama_kelas" placeholder="Nam Kelas">
+                    <input type="text" class="form-control" name="nama_kelas" placeholder="Nama Kelas">
                 </div>
                  
 <!--                 <div class="form-group">
@@ -80,8 +91,17 @@
                 </button>
             </div>
             <div class="modal-body">
-             
-                <div class="form-group">
+<label>Kelas</label>
+               <div class="form-group">
+               
+                    <select class="custom-select" name="kelas" required>
+                    <option value="VII">VII</option>
+                    <option value="VIII">VIII</option>
+                    <option value="IX">IX</option>
+                    </select>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+                <div class="form-group">
                     <label>Nama Kelas</label>
                     <input type="text" class="form-control nama_kelas" name="nama_kelas" placeholder="Nama Kelas">
                 </div>
@@ -137,9 +157,11 @@
             // get data from button edit
             const id = $(this).data('id');
             const name = $(this).data('nama_kelas');
+            const kelas = $(this).data('kelas');
             // Set data to Form Edit
             $('.kelas_id').val(id);
             $('.nama_kelas').val(name);
+            $('.kelas').val(kelas);    
 //             $('.kelas_price').val(price);
 //             $('.kelas_category').val(category).trigger('change');
             // Call Modal Edit

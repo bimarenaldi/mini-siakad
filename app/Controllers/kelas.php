@@ -17,6 +17,7 @@ class kelas extends Controller
         $request = \Config\Services::request();
         $model = new tbl_kelas();
         $data = array(
+            'kelas' => $request->getVar('kelas'),
             'nama_kelas' => $request->getVar('nama_kelas'),
         );
         $model->saveKelas($data);
@@ -29,6 +30,7 @@ class kelas extends Controller
         $model = new tbl_kelas();
         $id = $request->getVar('kelas_id');
         $data = array(
+            'kelas' => $request->getVar('kelas'),
             'nama_kelas' => $request->getVar('nama_kelas'),
         );
         $model->updateKelas($data,$id);
